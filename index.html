@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="ro">
+
 <head>
   <meta charset="UTF-8">
-  <title>Exemplu HTML</title>
+  <title>Login - Echipa de sub Podul Grant</title>
 </head>
+
 <body>
-  <h1>Bun venit!</h1>
-  <p>Acesta este un exemplu simplu de pagină HTML.</p>
-  <p>Am adăugat doar câteva rânduri de text pentru test.</p>
-  <p>Paginile HTML sunt baza oricărui site web.</p>
+  <div id="login-view">
+    <h1>Login - Rapid FanClub </h1>
+    <form id="login-form" action="#" method="post">
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username" required><br><br>
+
+      <label for="password">Parola:</label><br>
+      <input type="password" id="password" name="password" required><br><br>
+
+      <button type="submit">Autentificare</button>
+    </form>
+    <p>Nu ai cont? <a href="#">Creează unul</a></p>
+  </div>
+
+  <div id="app-view">
+    <header>
+      <div id="brand">Rapid - Echipa de sub Podul Grant</div>
+      <div id="menu-wrap">
+        <button id="burger-btn" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Deschide meniul" type="button">☰ Meniu</button>
+        <div id="menu" role="menu">
+          <a href="stiri.html" role="menuitem">Știri</a>
+          <a href="echipa.html" role="menuitem">Echipă</a>
+          <a href="program_competitional.html" role="menuitem">Program competițional</a>
+          <a href="setari.html" role="menuitem">Setări</a>
+          <a href="contact.html" role="menuitem">Contact</a>
+        </div>
+
+      </div>
+    </header>
+
+    <main>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Pentru întrebări sau sugestii, scrie-ne la: <a href="mailto:contact@rapid-fansite.ro">contact@rapid-fansite.ro</a></p>
+      </section>
+    </main>
+  </div>
 </body>
+
 </html>
