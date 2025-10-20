@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Setări - Rapid FanClub</title>
+</head>
+
+<body>
+    <header>
+        <div id="brand">Rapid - Echipa de sub Podul Grant</div>
+        <nav>
+            <a href="stiri.html">Știri</a>
+            <a href="echipa.html">Echipă</a>
+            <a href="program_competitional.html">Program competițional</a>
+            <a href="setari.html">Setări</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="setari">
+            <h2>Setări utilizator</h2>
+            <form action="#" method="post">
+
+                <!-- Schimbare tema -->
+                <fieldset>
+                    <legend>Tema site-ului</legend>
+                    <label>
+                        <input type="radio" name="tema" value="luminos" checked>
+                        Luminos
+                    </label><br>
+                    <label>
+                        <input type="radio" name="tema" value="intunecat">
+                        Întunecat
+                    </label>
+                </fieldset>
+                <br>
+
+                <!-- Schimbare username -->
+                <fieldset>
+                    <legend>Schimbă username</legend>
+                    <label for="username">Username nou:</label><br>
+                    <input type="text" id="username" name="username" required>
+                </fieldset>
+                <br>
+
+                <!-- Schimbare parolă -->
+                <fieldset>
+                    <legend>Schimbă parola</legend>
+                    <label for="parola-veche">Parola actuală:</label><br>
+                    <input type="password" id="parola-veche" name="parola-veche" required><br><br>
+
+                    <label for="parola-noua">Parola nouă:</label><br>
+                    <input type="password" id="parola-noua" name="parola-noua" required><br><br>
+
+                    <label for="parola-confirm">Confirmă parola nouă:</label><br>
+                    <input type="password" id="parola-confirm" name="parola-confirm" required>
+                </fieldset>
+                <br>
+
+                <button type="submit">Salvează modificările</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>

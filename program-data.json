@@ -1,0 +1,38 @@
+{
+    "meciuri_viitoare": [
+        {
+            "id": 1,
+            "competitie": "SuperLiga",
+            "data": "25 Octombrie 2025, 21:00",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "FCSB"
+        },
+        {
+            "id": 2,
+            "competitie": "SuperLiga",
+            "data": "1 Noiembrie 2025, 18:00",
+            "echipa_casa": "CFR Cluj",
+            "echipa_oaspeti": "Rapid București"
+        }
+    ],
+    "meciuri_trecute": [
+        {
+            "id": 3,
+            "competitie": "SuperLiga",
+            "data": "18 Octombrie 2025",
+            "echipa_casa": "Rapid București",
+            "scor_casa": 2,
+            "echipa_oaspeti": "Universitatea Craiova",
+            "scor_oaspeti": 1
+        },
+        {
+            "id": 4,
+            "competitie": "Cupa României",
+            "data": "10 Octombrie 2025",
+            "echipa_casa": "Petrolul Ploiești",
+            "scor_casa": 0,
+            "echipa_oaspeti": "Rapid București",
+            "scor_oaspeti": 3
+        }
+    ]
+}
