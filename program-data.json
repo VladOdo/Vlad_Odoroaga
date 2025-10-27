@@ -1,38 +1,274 @@
 {
-    "meciuri_viitoare": [
+    "meciuri": [
         {
-            "id": 1,
-            "competitie": "SuperLiga",
-            "data": "25 Octombrie 2025, 21:00",
-            "echipa_casa": "Rapid București",
-            "echipa_oaspeti": "FCSB"
+            "data_iso": "2025-07-11T21:30:00",
+            "data_afisare": "11 Iulie 2025",
+            "competitie": "SuperLiga - Etapa 1",
+            "echipa_casa": "FC Argeș",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": 0,
+            "scor_oaspeti": 2
         },
         {
-            "id": 2,
-            "competitie": "SuperLiga",
-            "data": "1 Noiembrie 2025, 18:00",
-            "echipa_casa": "CFR Cluj",
-            "echipa_oaspeti": "Rapid București"
-        }
-    ],
-    "meciuri_trecute": [
-        {
-            "id": 3,
-            "competitie": "SuperLiga",
-            "data": "18 Octombrie 2025",
+            "data_iso": "2025-07-20T21:30:00",
+            "data_afisare": "20 Iulie 2025",
+            "competitie": "SuperLiga - Etapa 2",
             "echipa_casa": "Rapid București",
-            "scor_casa": 2,
-            "echipa_oaspeti": "Universitatea Craiova",
+            "echipa_oaspeti": "CFR Cluj",
+            "scor_casa": 1,
             "scor_oaspeti": 1
         },
         {
-            "id": 4,
-            "competitie": "Cupa României",
-            "data": "10 Octombrie 2025",
-            "echipa_casa": "Petrolul Ploiești",
-            "scor_casa": 0,
+            "data_iso": "2025-07-25T21:30:00",
+            "data_afisare": "25 Iulie 2025",
+            "competitie": "SuperLiga - Etapa 3",
+            "echipa_casa": "FK Csikszereda",
             "echipa_oaspeti": "Rapid București",
-            "scor_oaspeti": 3
+            "scor_casa": 0,
+            "scor_oaspeti": 2
+        },
+        {
+            "data_iso": "2025-08-04T21:30:00",
+            "data_afisare": "4 August 2025",
+            "competitie": "SuperLiga - Etapa 4",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "FC Botoșani",
+            "scor_casa": 2,
+            "scor_oaspeti": 1
+        },
+        {
+            "data_iso": "2025-08-11T21:30:00",
+            "data_afisare": "11 August 2025",
+            "competitie": "SuperLiga - Etapa 5",
+            "echipa_casa": "Oțelul Galați",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": 1,
+            "scor_oaspeti": 1
+        },
+        {
+            "data_iso": "2025-08-17T21:30:00",
+            "data_afisare": "17 August 2025",
+            "competitie": "SuperLiga - Etapa 6",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "FCSB",
+            "scor_casa": 2,
+            "scor_oaspeti": 2
+        },
+        {
+            "data_iso": "2025-08-22T21:30:00",
+            "data_afisare": "22 August 2025",
+            "competitie": "SuperLiga - Etapa 7",
+            "echipa_casa": "Metaloglobus București",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": 1,
+            "scor_oaspeti": 2
+        },
+        {
+            "data_iso": "2025-08-29T20:30:00",
+            "data_afisare": "29 August 2025",
+            "competitie": "SuperLiga - Etapa 8",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "UTA Arad",
+            "scor_casa": 2,
+            "scor_oaspeti": 0
+        },
+        {
+            "data_iso": "2025-09-12T21:00:00",
+            "data_afisare": "12 Septembrie 2025",
+            "competitie": "SuperLiga - Etapa 9",
+            "echipa_casa": "FC Universitatea Cluj",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": 0,
+            "scor_oaspeti": 0
+        },
+        {
+            "data_iso": "2025-09-21T21:00:00",
+            "data_afisare": "21 Septembrie 2025",
+            "competitie": "SuperLiga - Etapa 10",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "AFC Hermannstadt",
+            "scor_casa": 1,
+            "scor_oaspeti": 2
+        },
+        {
+            "data_iso": "2025-09-27T20:30:00",
+            "data_afisare": "27 Septembrie 2025",
+            "competitie": "SuperLiga - Etapa 11",
+            "echipa_casa": "Petrolul Ploiești",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": 0,
+            "scor_oaspeti": 1
+        },
+        {
+            "data_iso": "2025-10-04T20:30:00",
+            "data_afisare": "4 Octombrie 2025",
+            "competitie": "SuperLiga - Etapa 12",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "Farul Constanța",
+            "scor_casa": 3,
+            "scor_oaspeti": 1
+        },
+        {
+            "data_iso": "2025-10-19T20:30:00",
+            "data_afisare": "19 Octombrie 2025",
+            "competitie": "SuperLiga - Etapa 13",
+            "echipa_casa": "Dinamo București",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": 0,
+            "scor_oaspeti": 2
+        },
+        {
+            "data_iso": "2025-10-27T20:30:00",
+            "data_afisare": "Luni, 27 Octombrie 2025, 20:30",
+            "competitie": "SuperLiga - Etapa 14",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "Unirea Slobozia",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2025-11-02T20:30:00",
+            "data_afisare": "Duminică, 2 Noiembrie 2025, 20:30",
+            "competitie": "SuperLiga - Etapa 15",
+            "echipa_casa": "Universitatea Craiova",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2025-11-10T20:30:00",
+            "data_afisare": "Luni, 10 Noiembrie 2025, 20:30",
+            "competitie": "SuperLiga - Etapa 16",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "FC Argeș",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2025-11-22T12:00:00",
+            "data_afisare": "Sâmbătă, 22 Noiembrie 2025",
+            "competitie": "SuperLiga - Etapa 17",
+            "echipa_casa": "CFR Cluj",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2025-11-29T12:00:00",
+            "data_afisare": "Sâmbătă, 29 Noiembrie 2025",
+            "competitie": "SuperLiga - Etapa 18",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "FK Csikszereda",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2025-12-06T12:00:00",
+            "data_afisare": "Sâmbătă, 6 Decembrie 2025",
+            "competitie": "SuperLiga - Etapa 19",
+            "echipa_casa": "FC Botoșani",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2025-12-13T12:00:00",
+            "data_afisare": "Sâmbătă, 13 Decembrie 2025",
+            "competitie": "SuperLiga - Etapa 20",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "Oțelul Galați",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2025-12-20T12:00:00",
+            "data_afisare": "Sâmbătă, 20 Decembrie 2025",
+            "competitie": "SuperLiga - Etapa 21",
+            "echipa_casa": "FCSB",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2026-01-17T12:00:00",
+            "data_afisare": "Sâmbătă, 17 Ianuarie 2026",
+            "competitie": "SuperLiga - Etapa 22",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "Metaloglobus București",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2026-01-24T12:00:00",
+            "data_afisare": "Sâmbătă, 24 Ianuarie 2026",
+            "competitie": "SuperLiga - Etapa 23",
+            "echipa_casa": "UTA Arad",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2026-01-31T12:00:00",
+            "data_afisare": "Sâmbătă, 31 Ianuarie 2026",
+            "competitie": "SuperLiga - Etapa 24",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "FC Universitatea Cluj",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2026-02-04T12:00:00",
+            "data_afisare": "Miercuri, 4 Februarie 2026",
+            "competitie": "SuperLiga - Etapa 25",
+            "echipa_casa": "AFC Hermannstadt",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2026-02-07T12:00:00",
+            "data_afisare": "Sâmbătă, 7 Februarie 2026",
+            "competitie": "SuperLiga - Etapa 26",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "Petrolul Ploiești",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2026-02-14T12:00:00",
+            "data_afisare": "Sâmbătă, 14 Februarie 2026",
+            "competitie": "SuperLiga - Etapa 27",
+            "echipa_casa": "Farul Constanța",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2026-02-21T12:00:00",
+            "data_afisare": "Sâmbătă, 21 Februarie 2026",
+            "competitie": "SuperLiga - Etapa 28",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "Dinamo București",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2026-02-28T12:00:00",
+            "data_afisare": "Sâmbătă, 28 Februarie 2026",
+            "competitie": "SuperLiga - Etapa 29",
+            "echipa_casa": "Unirea Slobozia",
+            "echipa_oaspeti": "Rapid București",
+            "scor_casa": null,
+            "scor_oaspeti": null
+        },
+        {
+            "data_iso": "2026-03-07T12:00:00",
+            "data_afisare": "Sâmbătă, 7 Martie 2026",
+            "competitie": "SuperLiga - Etapa 30",
+            "echipa_casa": "Rapid București",
+            "echipa_oaspeti": "Universitatea Craiova",
+            "scor_casa": null,
+            "scor_oaspeti": null
         }
     ]
 }

@@ -3,25 +3,69 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Știri - Rapid Fansite</title>
+    <title>Știri - Rapid FanClub</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header>
-        <h1>Rapid - Echipa de sub Podul Grant</h1>
+        <a id="brand" href="index.html">Rapid - Echipa de sub Podul Grant</a>
         <nav>
-            <a href="stiri.html">Știri</a> |
-            <a href="echipa.html">Echipă</a> |
-            <a href="program.html">Program competițional</a> |
-            <a href="setari.html">Setări</a> |
-            <a href="contact.html">Contact</a>
+            <a href="stiri.html">Știri</a>
+            <a href="echipa.html">Echipă</a>
+            <a href="program_competitional.html">Program competițional</a>
+            <a href="setari.html">Setări</a>
         </nav>
     </header>
 
     <main>
-        <h2>Știri</h2>
-        <p>Aici vor fi ultimele știri despre Rapid.</p>
+        <h2>Ultimele Știri</h2>
+
+        <section id="stiri-container">
+            <p>Se încarcă știrile...</p>
+        </section>
+
     </main>
+    <footer>
+        <div class="footer-container">
+
+            <div id="footer-info">
+                <h2>Contact</h2>
+                <p>
+                    Ai o întrebare, o sugestie sau vrei doar să ne saluți?
+                    Ne poți scrie direct la adresa:
+                    <a href="mailto:contact@rapid-fansite.ro">contact@rapid-fansite.ro</a>
+                </p>
+                <p>
+                    Sau poți folosi formularul alăturat.
+                </p>
+            </div>
+
+            <div id="footer-form-container">
+                <form id="footer-form" action="#" method="post">
+                    <div>
+                        <label for="footer-nume">Numele tău:</label>
+                        <input type="text" id="footer-nume" name="nume" required>
+                    </div>
+                    <div>
+                        <label for="footer-email">Email:</label>
+                        <input type="email" id="footer-email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="footer-mesaj">Mesajul tău:</label>
+                        <textarea id="footer-mesaj" name="mesaj" rows="5" required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit">Trimite Mesajul</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="js/stiri.js" defer></script>
+
 </body>
 
-</html>
+</html> ```

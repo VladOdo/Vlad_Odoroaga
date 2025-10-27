@@ -3,47 +3,52 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Login - Echipa de sub Podul Grant</title>
+  <title>Acasă - Rapid FanClub</title>
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <div id="login-view">
-    <h1>Login - Rapid FanClub </h1>
-    <form id="login-form" action="#" method="post">
-      <label for="username">Username:</label><br>
-      <input type="text" id="username" name="username" required><br><br>
 
-      <label for="password">Parola:</label><br>
-      <input type="password" id="password" name="password" required><br><br>
+  <header>
+    <a id="brand" href="index.html">Rapid - Echipa de sub Podul Grant</a>
+    <nav>
+      <a href="stiri.html">Știri</a>
+      <a href="echipa.html">Echipă</a>
+      <a href="program_competitional.html">Program competițional</a>
+      <a href="setari.html">Setări</a>
+    </nav>
+  </header>
 
-      <button type="submit">Autentificare</button>
-    </form>
-    <p>Nu ai cont? <a href="#">Creează unul</a></p>
-  </div>
+  <main>
 
-  <div id="app-view">
-    <header>
-      <div id="brand">Rapid - Echipa de sub Podul Grant</div>
-      <div id="menu-wrap">
-        <button id="burger-btn" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Deschide meniul" type="button">☰ Meniu</button>
-        <div id="menu" role="menu">
-          <a href="stiri.html" role="menuitem">Știri</a>
-          <a href="echipa.html" role="menuitem">Echipă</a>
-          <a href="program_competitional.html" role="menuitem">Program competițional</a>
-          <a href="setari.html" role="menuitem">Setări</a>
-          <a href="contact.html" role="menuitem">Contact</a>
-        </div>
+    <section class="hero-section">
+      <h1>Bun Venit pe Rapid FanClub!</h1>
+      <p>Locul unde toți suporterii vișinii se simt ca acasă. Hai Rapid!</p>
+    </section>
 
-      </div>
-    </header>
+    <h2>Acces Rapid</h2>
+    <section class="quick-links-container">
 
-    <main>
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Pentru întrebări sau sugestii, scrie-ne la: <a href="mailto:contact@rapid-fansite.ro">contact@rapid-fansite.ro</a></p>
-      </section>
-    </main>
-  </div>
+      <a href="stiri.html" class="quick-link-card">
+        <h3>Știri 📰</h3>
+        <p>Vezi ultimele noutăți din Giulești.</p>
+      </a>
+
+      <a href="program_competitional.html" class="quick-link-card">
+        <h3>Program 📅</h3>
+        <p>Vezi meciurile viitoare și rezultatele.</p>
+      </a>
+
+      <a href="echipa.html" class="quick-link-card">
+        <h3>Echipa 🏆</h3>
+        <p>Vezi lotul complet de jucători.</p>
+      </a>
+
+    </section>
+
+  </main>
+
 </body>
 
 </html>
