@@ -1,22 +1,106 @@
+/* ======================================= */
+/* === 0. STRUCTURA CSS GRID           === */
+/* ======================================= */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 220px 1fr 220px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header header"
+        "nav    main   aside"
+        "footer footer footer";
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding-top: 80px;
+}
+.layout-acasa {
+    /* Definim 2 coloane: Main (flexibilă) și Aside (220px) */
+    grid-template-columns: 1fr 220px;
+
+    /* Definim noua hartă FĂRĂ "nav" */
+    grid-template-areas:
+        "header header"
+        "main   aside"
+        "footer footer";
+}
+/* ======================================= */
+/* === 1. ASIGNĂRI ZONE GRID ȘI STILURI GLOBALE === */
+/* ======================================= */
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     color: #333;
+    font-size: 100%;
+    /* Setează baza de 16px pentru unitățile 'rem' */
+    line-height: 1.6;
+    /* Îmbunătățește lizibilitatea textului */
+}
+
+header {
+    /* L-am scos din Grid și l-am făcut "lipit" de ecran */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #800000;
+    color: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Animația de ascundere/apariție */
+    transition: transform 0.6s ease-in-out;
+}
+
+.header-hidden {
+    transform: translateY(-100%);
+}
+
+nav {
+    grid-area: nav;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+    padding: 20px;
 }
 
 main {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 10px 20px;
+    grid-area: main;
+    padding: 10px 30px;
     background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+aside {
+    grid-area: aside;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+    padding: 20px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #333;
+    color: #f4f4f4;
+    padding: 40px 20px;
+    margin-top: 0;
+    border-top: 5px solid #800000;
+}
+
+/* ======================================= */
+/* === 2. STILURI ELEMENTE DE BAZĂ (cu REM) === */
+/* ======================================= */
+
 h2 {
-    font-size: 2.5em;
+    font-size: 2.5rem;
+    /* Schimbat din em în rem */
     text-align: center;
     color: #800000;
     margin-top: 20px;
@@ -26,7 +110,8 @@ h3 {
     border-bottom: 3px solid #800000;
     padding-bottom: 8px;
     margin-top: 40px;
-    font-size: 2em;
+    font-size: 2rem;
+    /* Schimbat din em în rem */
     color: #800000;
 }
 
@@ -34,41 +119,110 @@ a {
     color: #800000;
 }
 
-header {
-    background-color: #800000;
-    color: white;
-    padding: 15px 30px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+aside h3 {
+    color: #333;
+    font-size: 1.5rem;
+    /* Schimbat din em în rem */
+    border-bottom: 2px solid #ccc;
 }
 
+/* ======================================= */
+/* === 3. HEADER ȘI NAVIGAȚIE (cu REM)  === */
+/* ======================================= */
+
 #brand {
-    font-size: 1.5em;
+    font-size: 1.5rem;
+    /* Schimbat din em în rem */
     font-weight: bold;
     color: white;
     text-decoration: none;
 }
 
 nav a {
-    color: white;
+    display: block;
+    padding: 12px 15px;
     text-decoration: none;
-    padding: 8px 15px;
+    color: #800000;
     font-weight: bold;
-    border-radius: 4px;
-    margin-left: 5px;
-    transition: background-color 0.2s ease-in-out;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background-color 0.2s;
+    font-size: 1rem;
+    /* Mărime de bază */
 }
 
 nav a:hover {
-    background-color: #600000;
+    background-color: #e7e7e7;
+    color: #600000;
 }
 
-.jucatori-container {
+/* ======================================= */
+/* === 4. PAGINA ACASĂ (index.html) (cu REM) === */
+/* ======================================= */
+
+.hero-section {
+    background-color: #800000;
+    color: white;
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.hero-section h1 {
+    margin-top: 0;
+    font-size: 2.8rem;
+    /* Schimbat din em în rem */
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    /* Schimbat din em în rem */
+    opacity: 0.9;
+}
+
+.quick-links-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 25px;
+}
+
+.quick-link-card {
+    display: block;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    color: #800000;
+}
+
+.quick-link-card h3 {
+    font-size: 1.8rem;
+    /* Schimbat din em în rem */
+    color: #800000;
+    margin-top: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* ======================================= */
+/* === 5. PAGINA ECHIPĂ (folosind FLEXBOX) === */
+/* ======================================= */
+
+.jucatori-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
 }
 
 .jucator-card {
@@ -77,11 +231,8 @@ nav a:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s, box-shadow 0.2s;
     overflow: hidden;
-}
-
-.jucator-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+    width: 48%;
+    margin-bottom: 25px;
 }
 
 .poza-jucator {
@@ -104,24 +255,31 @@ nav a:hover {
 }
 
 .numar-tricou {
-    font-size: 2.8em;
+    font-size: 2.8rem;
+    /* Schimbat din em în rem */
     font-weight: bold;
     color: #800000;
 }
 
 .pozitie-jucator {
-    font-size: 1em;
+    font-size: 1rem;
+    /* Schimbat din em în rem */
     color: #555;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 .nume-jucator {
-    font-size: 1.4em;
+    font-size: 1.4rem;
+    /* Schimbat din em în rem */
     color: #111;
     margin: 0;
     font-weight: 600;
 }
+
+/* ======================================= */
+/* === 6. PAGINA ȘTIRI (stiri.html) (cu REM) === */
+/* ======================================= */
 
 .stire-card {
     display: flex;
@@ -149,11 +307,13 @@ nav a:hover {
     margin-bottom: 10px;
     color: #800000;
     border-bottom: none;
-    font-size: 1.6em;
+    font-size: 1.6rem;
+    /* Schimbat din em în rem */
 }
 
 .stire-meta {
-    font-size: 0.85em;
+    font-size: 0.85rem;
+    /* Schimbat din em în rem */
     color: #555;
     font-style: italic;
     margin-bottom: 15px;
@@ -174,6 +334,10 @@ nav a:hover {
     background-color: #600000;
 }
 
+/* ======================================= */
+/* === 7. PAGINA PROGRAM (program.html) (cu REM) === */
+/* ======================================= */
+
 .meci-card {
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -191,7 +355,8 @@ nav a:hover {
 }
 
 .meci-card .competitie {
-    font-size: 0.9em;
+    font-size: 0.9rem;
+    /* Schimbat din em în rem */
     color: #555;
     display: block;
     margin-bottom: 8px;
@@ -199,7 +364,8 @@ nav a:hover {
 
 .meci-card h4 {
     margin: 0 0 8px 0;
-    font-size: 1.2em;
+    font-size: 1.2rem;
+    /* Schimbat din em în rem */
 }
 
 .meci-card h4 strong {
@@ -214,13 +380,9 @@ nav a:hover {
     margin: 0;
 }
 
-footer {
-    background-color: #333;
-    color: #f4f4f4;
-    padding: 40px 20px;
-    margin-top: 40px;
-    border-top: 5px solid #800000;
-}
+/* ======================================= */
+/* === 8. FOOTER (Pe toate paginile) (cu REM) === */
+/* ======================================= */
 
 .footer-container {
     max-width: 900px;
@@ -233,7 +395,8 @@ footer {
 footer h2 {
     color: white;
     text-align: left;
-    font-size: 2em;
+    font-size: 2rem;
+    /* Schimbat din em în rem */
     margin-top: 0;
 }
 
@@ -255,7 +418,8 @@ footer a:hover {
 #footer-form label {
     display: block;
     margin-bottom: 5px;
-    font-size: 0.9em;
+    font-size: 0.9rem;
+    /* Schimbat din em în rem */
     color: #ccc;
 }
 
@@ -287,8 +451,327 @@ footer a:hover {
     background-color: #600000;
 }
 
-@media (max-width: 768px) {
+/* ======================================= */
+/* === 9. RESPONSIVE (Mobil < 900px)    === */
+/* ======================================= */
+
+@media (max-width: 900px) {
+
+    /* Layout-ul general trece pe o coloană */
+    .grid-container {
+        /* ... (regula grid-template-columns) ... */
+    }
+
+    /* ... (reguli nav, aside) ... */
+
+    .quick-links-container,
     .footer-container {
         grid-template-columns: 1fr;
     }
+
+    /* Regula FLEXBOX pentru mobil */
+    .jucator-card {
+        width: 100%;
+    }
+
+    /* Ajustările pentru FONTURI */
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    .stire-card {
+        display: block;
+    }
+
+    /* AICI SUNT NOILE REGULI PENTRU IMAGINI 
+    */
+    main img,
+    aside img {
+        max-width: 100%;
+        /* Se redimensionează proporțional */
+        height: auto;
+        /* Păstrează proporțiile */
+        display: block;
+        /* Necesar pentru a funcționa margin: auto */
+        margin-left: auto;
+        margin-right: auto;
+        /* Centrează imaginea */
+    }
+
+    .poza-jucator {
+        height: auto;
+        /* Anulăm înălțimea fixă de 250px de pe desktop */
+    }
+
+    .stire-imagine {
+        width: 100%;
+        /* Pe mobil, imaginea din știri devine un banner */
+        height: auto;
+        /* Anulăm înălțimea fixă */
+        max-width: 100%;
+        /* Asigurăm coerența */
+    }
+}
+/* ======================================= */
+/* === 10. PAGINA DE LOGIN (login.html) === */
+/* ======================================= */
+
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.login-container {
+    width: 350px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #800000;
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #800000;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+#login-form div {
+    margin-bottom: 15px;
+}
+
+#login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Previne depășirea lățimii */
+}
+
+#login-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #800000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#login-form button:hover {
+    background-color: #600000;
+}
+
+.info-login {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 20px;
+}
+
+#login-error-message {
+    color: #D8000C;
+    /* Roșu de eroare */
+    background-color: #FFD2D2;
+    border: 1px solid #D8000C;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.error-hidden {
+    display: none;
+    /* Ascunde mesajul de eroare inițial */
+}
+.logout-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 20px;
+}
+
+.logout-button:hover {
+    background-color: #333;
+}
+/* ======================================= */
+/* === 11. BUTON BACK-TO-TOP        === */
+/* ======================================= */
+
+.back-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    /* Să stea deasupra footer-ului */
+
+    /* Stil */
+    background-color: #800000;
+    /* Vișiniu */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+    /* Tranziție pentru apariție/dispariție */
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Clasa pe care o folosim cu JS pentru a ascunde butonul */
+.back-to-top-btn.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Efect de "slide" in/out */
+    pointer-events: none;
+    /* Să nu poți da click când e ascuns */
+}
+/* ======================================= */
+/* === 12. TEMA ÎNTUNECATĂ (DARK MODE) === */
+/* ======================================= */
+
+/* Aceste reguli se aplică doar dacă tag-ul <html> are clasa 'dark-mode' */
+
+html.dark-mode body {
+    background-color: #1a1a1a;
+    /* Fundal general foarte închis */
+    color: #e0e0e0;
+    /* Text general gri deschis */
+}
+
+html.dark-mode main {
+    background-color: #2a2a2a;
+    /* Fundal conținut închis */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+html.dark-mode nav,
+html.dark-mode aside {
+    background-color: #252525;
+    /* Fundal bare laterale */
+    border-color: #444;
+    /* Culoare borduri */
+}
+
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode a {
+    color: #cc9900;
+    /* O culoare accent (auriu) pentru a înlocui vișiniul */
+}
+
+html.dark-mode h3 {
+    border-bottom-color: #cc9900;
+}
+
+html.dark-mode aside h3 {
+    color: #f1f1f1;
+    border-bottom-color: #555;
+}
+
+/* Header-ul și Footer-ul (păstrăm culorile de brand) */
+html.dark-mode header {
+    background-color: #600000;
+    /* Un vișiniu mai închis */
+    border-bottom: 1px solid #444;
+}
+
+html.dark-mode footer {
+    background-color: #222;
+    border-top-color: #cc9900;
+}
+
+/* Carduri (Jucători, Știri, Meciuri) */
+html.dark-mode .jucator-card,
+html.dark-mode .stire-card,
+html.dark-mode .meci-card,
+html.dark-mode .quick-link-card {
+    background-color: #333;
+    border-color: #444;
+}
+
+html.dark-mode .jucator-card:hover,
+html.dark-mode .quick-link-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+html.dark-mode .nume-jucator,
+html.dark-mode .meci-card h4 strong {
+    color: #f1f1f1;
+}
+
+html.dark-mode .pozitie-jucator,
+html.dark-mode .stire-meta,
+html.dark-mode .meci-card .competitie,
+html.dark-mode .meci-card .data-meci {
+    color: #bbb;
+}
+
+html.dark-mode .numar-tricou,
+html.dark-mode .stire-continut h3,
+html.dark-mode .quick-link-card h3 {
+    color: #cc9900;
+}
+
+html.dark-mode .quick-link-card:hover {
+    color: #cc9900;
+}
+
+/* Formulare */
+html.dark-mode #footer-form input,
+html.dark-mode #footer-form textarea {
+    background-color: #555;
+    border-color: #777;
+    color: #f1f1f1;
+}
+
+html.dark-mode .logout-button {
+    background-color: #444;
+}
+
+html.dark-mode .logout-button:hover {
+    background-color: #555;
+}
+
+/* Butonul Back-to-Top */
+html.dark-mode .back-to-top-btn {
+    background-color: #cc9900;
+    color: #1a1a1a;
 }
