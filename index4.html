@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercitiul 4</title>
+</head>
+
+<body>
+    <h1>Exercitiul 4</h1>
+    <p>Rezolvarea este in consola.</p>
+
+    <script>
+        var numere = [13, 17, 13, 17];
+
+         console.log("Numerele date sunt: " + numere.join(", "));
+
+        numere.sort(function (a, b) {
+            return a - b;
+         });
+
+        if (numere[0] == numere[1] && numere[2] == numere[3]) {
+            var L1 = numere[0];
+            var L2 = numere[2];
+
+            var perimetrul = 2 * (L1 + L2);
+        var aria = L1 * L2;
+
+            console.log(`Cele 4 numere pot reprezenta laturi ale unui dreptunghi! Perimetrul este: ${perimetrul}. Aria este: ${aria}.`);
+
+        } else {
+            console.log("Cele 4 numere nu pot reprezenta laturi ale unui dreptunghi!");
+        }
+    </script>
+</body>
+
+</html>

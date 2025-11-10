@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercitiul 1</title>
+</head>
+
+<body>
+    <h1>Exercitiul 1</h1>
+    <p>Rezolvarea este in consola.</p>
+
+    <script>
+        var myName = "Vlad";
+        var mySurname = "Odoroagă";
+        var myAge = 20;
+        var studyYear = 3;
+        var myHobby = "fotbalul";
+
+        myAge += 5;
+
+        console.log("--- Varianta cu operatorul '+' ---");
+        console.log("Buna!\nMa numesc " + mySurname + " " + myName + " si am " + myAge + " ani. Sunt la Universitatea Politehnica Bucuresti, in anul " + studyYear + ".\nUnul dintre hobby-urile mele este " + myHobby + ".");
+
+        console.log("\n--- Varianta cu placeholders (ES6) ---");
+        console.log(`Buna!
+Ma numesc ${mySurname} ${myName} si am ${myAge} ani. Sunt la Universitatea Politehnica Bucuresti, in anul ${studyYear}.
+Unul dintre hobby-urile mele este ${myHobby}.`);
+
+        console.log("\n--- Tipuri de date ---");
+        console.log("Tipul variabilei myName este: " + typeof myName);
+        console.log("Tipul variabilei myAge este: " + typeof myAge);
+        console.log("Tipul variabilei myHobby este: " + typeof myHobby);
+    </script>
+</body>
+
+</html>

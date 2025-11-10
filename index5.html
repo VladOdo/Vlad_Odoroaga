@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercitiul 5</title>
+</head>
+
+<body>
+    <h1>Exercitiul 5</h1>
+    <p>Rezolvarea este in consola.</p>
+
+    <script>
+        var a = 100;
+      var b = 100;
+        var c = 100;
+
+        console.log(`Laturile date sunt: ${a}, ${b}, ${c}`);
+
+        if ((a + b > c) && (a + c > b) && (b + c > a)) {
+
+            if (a === b && b === c) {
+                console.log("Laturile pot forma un triunghi: Echilateral");
+            }
+            else if (a === b || b === c || a === c) {
+                console.log("Laturile pot forma un triunghi: Isoscel");
+            }
+            else {
+                console.log("Laturile pot forma un triunghi: Oarecare");
+            }
+
+        } else {
+            console.log("Laturile NU pot forma un triunghi!");
+        }
+    </script>
+</body>
+
+</html>
