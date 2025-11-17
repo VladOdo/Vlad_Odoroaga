@@ -1,0 +1,101 @@
+{
+    "etapa": 16,
+    "echipe": [
+        {
+            "loc": 1,
+            "nume": "Universitatea Craiova",
+            "mj": 16,
+            "pct": 29
+        },
+        {
+            "loc": 2,
+            "nume": "FCSB",
+            "mj": 16,
+            "pct": 20
+        },
+        {
+            "loc": 3,
+            "nume": "CFR Cluj",
+            "mj": 16,
+            "pct": 16
+        },
+        {
+            "loc": 4,
+            "nume": "Rapid București",
+            "mj": 16,
+            "pct": 35
+        },
+        {
+            "loc": 5,
+            "nume": "Farul Constanța",
+            "mj": 16,
+            "pct": 25
+        },
+        {
+            "loc": 6,
+            "nume": "Oțelul Galați",
+            "mj": 16,
+            "pct": 23
+        },
+        {
+            "loc": 7,
+            "nume": "Petrolul Ploiești",
+            "mj": 16,
+            "pct": 15
+        },
+        {
+            "loc": 8,
+            "nume": "AFC Hermannstadt",
+            "mj": 16,
+            "pct": 11
+        },
+        {
+            "loc": 9,
+            "nume": "UTA Arad",
+            "mj": 16,
+            "pct": 22
+        },
+        {
+            "loc": 10,
+            "nume": "FC Argeș",
+            "mj": 16,
+            "pct": 27
+        },
+        {
+            "loc": 11,
+            "nume": "Unirea Slobozia",
+            "mj": 16,
+            "pct": 18
+        },
+        {
+            "loc": 12,
+            "nume": "U Cluj",
+            "mj": 16,
+            "pct": 20
+        },
+        {
+            "loc": 13,
+            "nume": "Dinamo București",
+            "mj": 16,
+            "pct": 30
+        },
+        {
+            "loc": 14,
+            "nume": "FK Csikszereda",
+            "mj": 16,
+            "pct": 13
+        },
+        {
+            "loc": 15,
+            "nume": "FC Botoșani",
+            "mj": 16,
+            "pct": 32
+        },
+        {
+            "loc": 16,
+            "nume": "Metaloglobus",
+            "mj": 16,
+            "pct": 7
+        }
+    ]
+}
