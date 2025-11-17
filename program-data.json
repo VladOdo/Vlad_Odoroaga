@@ -123,8 +123,8 @@
             "competitie": "SuperLiga - Etapa 14",
             "echipa_casa": "Rapid București",
             "echipa_oaspeti": "Unirea Slobozia",
-            "scor_casa": null,
-            "scor_oaspeti": null
+            "scor_casa": 4,
+            "scor_oaspeti": 0
         },
         {
             "data_iso": "2025-11-02T20:30:00",
@@ -132,17 +132,17 @@
             "competitie": "SuperLiga - Etapa 15",
             "echipa_casa": "Universitatea Craiova",
             "echipa_oaspeti": "Rapid București",
-            "scor_casa": null,
-            "scor_oaspeti": null
+            "scor_casa": 2,
+            "scor_oaspeti": 2
         },
         {
-            "data_iso": "2025-11-10T20:30:00",
-            "data_afisare": "Luni, 10 Noiembrie 2025, 20:30",
+            "data_iso": "2025-11-08T20:30:00",
+            "data_afisare": "Sâmbătă, 8 Noiembrie 2025, 20:30",
             "competitie": "SuperLiga - Etapa 16",
             "echipa_casa": "Rapid București",
             "echipa_oaspeti": "FC Argeș",
-            "scor_casa": null,
-            "scor_oaspeti": null
+            "scor_casa": 2,
+            "scor_oaspeti": 0
         },
         {
             "data_iso": "2025-11-22T12:00:00",

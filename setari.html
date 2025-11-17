@@ -6,33 +6,33 @@
     <title>Setări - Rapid FanClub</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/authentication.js"></script>
+    <script src="js/theme-loader.js"></script>
 </head>
 
 <body>
 
     <div class="grid-container">
-
         <header>
             <a id="brand" href="index.html">Rapid - Echipa de sub Podul Grant</a>
         </header>
-
         <nav>
             <a href="index.html">Acasă</a>
             <a href="stiri.html">Știri</a>
             <a href="echipa.html">Echipă</a>
             <a href="program_competitional.html">Program competițional</a>
             <a href="setari.html">Setări</a>
+            <hr class="nav-separator">
+            <a href="#" id="logout-button-nav" class="nav-logout">Deconectare</a>
         </nav>
-
         <main>
             <section id="setari">
-                <h2>Setări utilizator</h2>
-                <form action="#" method="post">
+                <h2>Setări Utilizator</h2>
 
+                <form action="#" method="post" id="settings-form">
                     <fieldset>
                         <legend>Tema site-ului</legend>
                         <label>
-                            <input type="radio" name="tema" value="light" id="tema-luminos" checked>
+                            <input type="radio" name="tema" value="light" id="tema-luminos">
                             Luminos
                         </label><br>
                         <label>
@@ -41,51 +41,36 @@
                         </label>
                     </fieldset>
                     <br>
-
                     <fieldset>
                         <legend>Schimbă username</legend>
                         <label for="username">Username nou:</label><br>
-                        <input type="text" id="username" name="username" required>
+                        <input type="text" id="username" name="username" placeholder="Noul tău username...">
                     </fieldset>
                     <br>
-
                     <fieldset>
                         <legend>Schimbă parola</legend>
                         <label for="parola-veche">Parola actuală:</label><br>
-                        <input type="password" id="parola-veche" name="parola-veche" required><br><br>
-
+                        <input type="password" id="parola-veche" name="parola-veche"><br><br>
                         <label for="parola-noua">Parola nouă:</label><br>
-                        <input type="password" id="parola-noua" name="parola-noua" required><br><br>
-
+                        <input type="password" id="parola-noua" name="parola-noua"><br><br>
                         <label for="parola-confirm">Confirmă parola nouă:</label><br>
-                        <input type="password" id="parola-confirm" name="parola-confirm" required>
+                        <input type="password" id="parola-confirm" name="parola-confirm">
                     </fieldset>
                     <br>
-
                     <button type="submit">Salvează modificările</button>
                 </form>
-                <hr>
-                <button id="logout-button" class="logout-button">Deconectare</button>
             </section>
         </main>
-
         <aside>
-            <h3>Info Util</h3>
-            <p>Schimbările de username și parolă sunt doar de design.</p>
-            <p>Acest formular nu este funcțional fără un server (backend).</p>
+            <h3>Info Setări</h3>
         </aside>
-
         <footer>
             <div class="footer-container">
                 <div id="footer-info">
                     <h2>Contact</h2>
                     <p>
-                        Ai o întrebare, o sugestie sau vrei doar să ne saluți?
                         Ne poți scrie direct la adresa:
                         <a href="mailto:contact@rapid-fansite.ro">contact@rapid-fansite.ro</a>
-                    </p>
-                    <p>
-                        Sau poți folosi formularul alăturat.
                     </p>
                 </div>
                 <div id="footer-form-container">
@@ -95,34 +80,18 @@
                             <input type="text" id="footer-nume" name="nume" required>
                         </div>
                         <div>
-                            <label for="footer-email">Email:</label>
-                            <input type="email" id="footer-email" name="email" required>
-                        </div>
-                        <div>
                             <label for="footer-mesaj">Mesajul tău:</label>
-                            <textarea id="footer-mesaj" name="mesaj" rows="5" required></textarea>
+                            <textarea id="footer-mesaj" name="mesaj" rows="3" required></textarea>
                         </div>
-                        <div>
-                            <button type="submit">Trimite Mesajul</button>
-                        </div>
+                        <button type="submit">Trimite</button>
                     </form>
                 </div>
             </div>
         </footer>
-
-    </div>
     <script src="js/main.js" defer></script>
-    <script src="js/theme.js" defer></script>
     <script src="js/setari.js" defer></script>
-    <script defer>
-        document.getElementById("logout-button").addEventListener("click", () => {
-            // Ștergem starea de logat
-            localStorage.removeItem("isLoggedIn");
-            // Trimitem utilizatorul la pagina de login
-            window.location.href = "login.html";
-        });
-    </script>
     <a id="back-to-top-btn" class="back-to-top-btn hidden" href="#">⬆️ Mergi sus</a>
+
 </body>
 
 </html>
