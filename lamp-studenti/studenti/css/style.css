@@ -1,0 +1,1002 @@
+/* ======================================= */
+/* === 0. STRUCTURA CSS GRID           === */
+/* ======================================= */
+
+/* Acesta este containerul principal care învelește TOATĂ pagina */
+.grid-container {
+    display: grid;
+    /* Definim 3 coloane: Nav (220px), Main (flexibilă), Aside (300px) */
+    grid-template-columns: 220px 1fr 300px;
+    /* Definim 3 rânduri: Header (auto), Conținut (1fr - flexibil), Footer (auto) */
+    grid-template-rows: auto 1fr auto;
+    /* Definim "harta" layout-ului. Fiecare cuvânt corespunde unei zone. */
+    grid-template-areas:
+        "header header header"
+        "nav    main   aside"
+        "footer footer footer";
+    min-height: 100vh;
+    /* Forțează pagina să aibă minim înălțimea ecranului */
+    max-width: 1400px;
+    /* O lățime maximă pentru site */
+    margin: 0 auto;
+    /* Centrează site-ul pe ecrane foarte mari */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding-top: 80px;
+    /* Lasă loc liber sus pentru header-ul fix */
+}
+
+/* O suprascriere a grid-ului DOAR pentru pagina Acasă (index.html) */
+.layout-acasa {
+    /* Pagina Acasă are doar 2 coloane (Main și Aside) */
+    grid-template-columns: 1fr 220px;
+    /* "Harta" este rescrisă FĂRĂ zona "nav" */
+    grid-template-areas:
+        "header header"
+        "main   aside"
+        "footer footer";
+}
+
+/* ======================================= */
+/* === 1. ASIGNĂRI ZONE GRID ȘI STILURI GLOBALE === */
+/* ======================================= */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f4f4f4;
+    /* Fundalul gri din spatele containerului principal */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-size: 100%;
+    /* Setează baza pentru unitățile 'rem' (de obicei 16px) */
+    line-height: 1.6;
+    /* Spațiere între rândurile de text pentru lizibilitate */
+}
+
+header {
+    /* Header-ul este fixat în partea de sus a ecranului */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Stă deasupra tuturor celorlalte elemente */
+
+    background-color: #800000;
+    color: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    /* Aliniază logo-ul și link-urile de user */
+    justify-content: space-between;
+    align-items: center;
+    /* Definește animația pentru ascundere (folosită de .header-hidden) */
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Clasă adăugată de JS (main.js) când dăm scroll în jos */
+.header-hidden {
+    transform: translateY(-100%);
+    /* Mută header-ul în afara ecranului (în sus) */
+}
+
+/* Asociază elementul <nav> cu zona "nav" din grid */
+nav {
+    grid-area: nav;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+}
+
+/* Asociază elementul <main> cu zona "main" din grid */
+main {
+    grid-area: main;
+    padding: 10px 30px;
+    background-color: #ffffff;
+    /* Fundal alb pentru conținutul principal */
+}
+
+/* Asociază elementul <aside> cu zona "aside" din grid */
+aside {
+    grid-area: aside;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+    padding: 20px;
+}
+
+/* Asociază elementul <footer> cu zona "footer" din grid */
+footer {
+    grid-area: footer;
+    background-color: #333;
+    color: #f4f4f4;
+    padding: 40px 20px;
+    margin-top: 0;
+    /* Nu mai e nevoie de margin, grid-ul aliniază */
+    border-top: 5px solid #800000;
+}
+
+/* ======================================= */
+/* === 2. STILURI ELEMENTE DE BAZĂ (cu REM) === */
+/* ======================================= */
+
+/* Stilul pentru titlurile principale de secțiune (ex: "Lotul Echipei") */
+h2 {
+    font-size: 2.5rem;
+    /* 2.5 * 16px = 40px */
+    text-align: center;
+    color: #800000;
+    margin-top: 20px;
+}
+
+/* Stilul pentru subtitluri (ex: Portari, Fundași) */
+h3 {
+    border-bottom: 3px solid #800000;
+    padding-bottom: 8px;
+    margin-top: 40px;
+    font-size: 2rem;
+    /* 2 * 16px = 32px */
+    color: #800000;
+}
+
+/* Culoarea default pentru link-uri în conținut (main) */
+a {
+    color: #800000;
+}
+
+/* Suprascriem stilul h3 DOAR pentru bara laterală (aside) */
+aside h3 {
+    color: #333;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #ccc;
+}
+
+/* ======================================= */
+/* === 3. HEADER ȘI NAVIGAȚIE (cu REM)  === */
+/* ======================================= */
+
+/* Stilul pentru logo/titlul site-ului din header */
+#brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    /* Scoate sublinierea link-ului */
+}
+
+/* Stilurile pentru meniul de navigație din stânga (NAV) */
+nav a {
+    display: block;
+    /* Le forțează să stea vertical, una sub alta */
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #800000;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background-color 0.2s ease-in-out;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    background-color: #e7e7e7;
+    color: #600000;
+}
+
+/* ======================================= */
+/* === 4. PAGINA ACASĂ (index.html) (cu REM) === */
+/* ======================================= */
+
+/* Secțiunea mare de "Bun Venit" */
+.hero-section {
+    background-color: #800000;
+    color: white;
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.hero-section h1 {
+    margin-top: 0;
+    font-size: 2.8rem;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Containerul pentru cardurile de link-uri rapide (Știri, Program, Echipă) */
+.quick-links-container {
+    display: grid;
+    /* Creează automat coloane de min. 200px. Se auto-aranjează. */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.quick-link-card {
+    display: block;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Animația de mărire la hover */
+.quick-link-card:hover {
+    transform: scale(1.03);
+    /* Mărește cardul */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    color: #800000;
+    z-index: 10;
+    position: relative;
+}
+
+.quick-link-card h3 {
+    font-size: 1.8rem;
+    color: #800000;
+    margin-top: 0;
+    border-bottom: none;
+    /* Suprascrie stilul global h3 */
+    padding-bottom: 0;
+}
+
+/* ======================================= */
+/* === 5. PAGINA ECHIPĂ (folosind FLEXBOX) === */
+/* ======================================= */
+
+/* Containerul pentru cardurile cu jucători */
+.jucatori-container {
+    display: flex;
+    /* Folosim Flexbox */
+    flex-wrap: wrap;
+    /* Permite cardurilor să treacă pe rândul următor */
+    justify-content: space-around;
+    /* Distribuie cardurile uniform */
+    align-items: stretch;
+    /* Face cardurile de pe un rând să aibă înălțime egală */
+}
+
+.jucator-card {
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+    width: 48%;
+    /* Forțează 2 carduri pe rând pe desktop */
+    margin-bottom: 25px;
+}
+
+/* Animația de mărire la hover */
+.jucator-card:hover {
+    transform: scale(1.03);
+    /* Mărește cardul */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    position: relative;
+}
+
+/* Poza jucătorului (partea de sus a cardului) */
+.poza-jucator {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    /* Decupează imaginea ca să umple spațiul */
+    background-color: #e0e0e0;
+    display: block;
+}
+
+/* Secțiunea de text de sub poză */
+.info-jucator {
+    padding: 20px;
+}
+
+/* Containerul pentru număr + poziție */
+.jucator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.numar-tricou {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #800000;
+}
+
+.pozitie-jucator {
+    font-size: 1rem;
+    color: #555;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nume-jucator {
+    font-size: 1.4rem;
+    color: #111;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* ======================================= */
+/* === 6. PAGINA ȘTIRI (stiri.html) (cu REM) === */
+/* ======================================= */
+
+/* Cardul de știre (imagine stânga, text dreapta) */
+.stire-card {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.stire-imagine {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    flex-shrink: 0;
+    /* Oprește imaginea din a se micșora */
+}
+
+.stire-continut {
+    padding: 15px 20px;
+}
+
+/* Suprascriere h3 pentru titlurile de știri */
+.stire-continut h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #800000;
+    border-bottom: none;
+    font-size: 1.6rem;
+}
+
+.stire-meta {
+    font-size: 0.85rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+/* Butonul "Citește știrea" */
+.stire-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #800000;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.stire-link:hover {
+    background-color: #600000;
+}
+
+/* ======================================= */
+/* === 7. PAGINA PROGRAM (program.html) (cu REM) === */
+/* ======================================= */
+
+.meci-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: #f9f9f9;
+}
+
+/* Bordura roșie pentru meciurile trecute */
+.meci-card.trecut {
+    border-left: 5px solid #800000;
+}
+
+/* Bordura verde pentru meciurile viitoare */
+.meci-card.viitor {
+    border-left: 5px solid #006400;
+}
+
+.meci-card .competitie {
+    font-size: 0.9rem;
+    color: #555;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.meci-card h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+}
+
+.meci-card h4 strong {
+    color: #000;
+    font-weight: 900;
+    margin: 0 10px;
+}
+
+.meci-card .data-meci {
+    font-style: italic;
+    color: #333;
+    margin: 0;
+}
+
+/* ======================================= */
+/* === 8. FOOTER (Pe toate paginile) (cu REM) === */
+/* ======================================= */
+
+/* Grid-ul intern din footer (2 coloane) */
+.footer-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Suprascriere h2 pentru footer (alb, aliniat stânga) */
+footer h2 {
+    color: white;
+    text-align: left;
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+footer p {
+    line-height: 1.6;
+    color: #ccc;
+}
+
+footer a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Stilurile formularului de contact din footer */
+#footer-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+#footer-form input[type="text"],
+#footer-form input[type="email"],
+#footer-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #555;
+    background-color: #444;
+    color: white;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#footer-form button {
+    background-color: #800000;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#footer-form button:hover {
+    background-color: #600000;
+}
+
+/* ======================================= */
+/* === 9. RESPONSIVE (Mobil < 900px)    === */
+/* ======================================= */
+
+/* Regulile de aici se aplică DOAR când ecranul este mai mic de 900px */
+@media (max-width: 900px) {
+
+    /* Layout-ul general trece pe o singură coloană */
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer";
+        padding-top: 70px;
+        /* Ajustăm padding-ul pt header pe mobil */
+    }
+
+    /* Suprascriere layout Acasă pe mobil */
+    .layout-acasa {
+        grid-template-areas:
+            "header"
+            "main"
+            "aside"
+            "footer";
+    }
+
+    nav {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    aside {
+        border-left: none;
+        border-top: 1px solid #ddd;
+    }
+
+    /* Trecem link-urile rapide și footer-ul pe o coloană */
+    .quick-links-container,
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Regula Flexbox: cardurile de jucător trec pe o coloană */
+    .jucator-card {
+        width: 100%;
+    }
+
+    /* Ajustarea fonturilor pe mobil */
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    /* Cardul de știre trece pe vertical (imagine sus, text jos) */
+    .stire-card {
+        display: block;
+    }
+
+    /* Reguli pentru imagini responsive pe mobil */
+    main img,
+    aside img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .poza-jucator {
+        height: auto;
+        /* Anulăm înălțimea fixă */
+    }
+
+    .stire-imagine {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+/* ======================================= */
+/* === 10. PAGINA DE LOGIN (login.html) === */
+/* ======================================= */
+
+/* Centrează containerul de login pe pagină */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+/* Cardul de login */
+.login-container {
+    width: 350px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #800000;
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #800000;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+#login-form div {
+    margin-bottom: 15px;
+}
+
+#login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#login-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #800000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#login-form button:hover {
+    background-color: #600000;
+}
+
+.info-login {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 20px;
+}
+
+/* Mesajul de eroare la login */
+#login-error-message {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    border: 1px solid #D8000C;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.error-hidden {
+    display: none;
+    /* Ascunde mesajul de eroare default */
+}
+
+/* Butonul de logout din pagina Setări */
+.logout-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.logout-button:hover {
+    background-color: #333;
+}
+
+/* ======================================= */
+/* === 11. BUTON BACK-TO-TOP        === */
+/* ======================================= */
+
+/* Butonul fixat în colț */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color: #800000;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Clasă adăugată de JS (main.js) pentru a ascunde butonul */
+.back-to-top-btn.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    /* Nu poți da click când e ascuns */
+}
+
+/* ======================================= */
+/* === 12. TEMA ÎNTUNECATĂ (DARK MODE) === */
+/* ======================================= */
+
+/* Aceste reguli se aplică doar dacă tag-ul <html> are clasa 'dark-mode' */
+html.dark-mode body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+html.dark-mode main {
+    background-color: #2a2a2a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+html.dark-mode nav,
+html.dark-mode aside {
+    background-color: #252525;
+    border-color: #444;
+}
+
+/* În Dark Mode, schimbăm accentul vișiniu cu unul auriu */
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode a {
+    color: #cc9900;
+}
+
+html.dark-mode h3 {
+    border-bottom-color: #cc9900;
+}
+
+html.dark-mode aside h3 {
+    color: #f1f1f1;
+    border-bottom-color: #555;
+}
+
+/* Păstrăm brandul în header și footer, dar cu nuanțe mai închise */
+html.dark-mode header {
+    background-color: #600000;
+    border-bottom: 1px solid #444;
+}
+
+html.dark-mode footer {
+    background-color: #222;
+    border-top-color: #cc9900;
+}
+
+/* Cardurile în Dark Mode */
+html.dark-mode .jucator-card,
+html.dark-mode .stire-card,
+html.dark-mode .meci-card,
+html.dark-mode .quick-link-card {
+    background-color: #333;
+    border-color: #444;
+}
+
+html.dark-mode .jucator-card:hover,
+html.dark-mode .quick-link-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+html.dark-mode .nume-jucator,
+html.dark-mode .meci-card h4 strong {
+    color: #f1f1f1;
+}
+
+html.dark-mode .pozitie-jucator,
+html.dark-mode .stire-meta,
+html.dark-mode .meci-card .competitie,
+html.dark-mode .meci-card .data-meci {
+    color: #bbb;
+}
+
+html.dark-mode .numar-tricou,
+html.dark-mode .stire-continut h3,
+html.dark-mode .quick-link-card h3 {
+    color: #cc9900;
+}
+
+html.dark-mode .quick-link-card:hover {
+    color: #cc9900;
+}
+
+/* Formularele în Dark Mode */
+html.dark-mode #footer-form input,
+html.dark-mode #footer-form textarea {
+    background-color: #555;
+    border-color: #777;
+    color: #f1f1f1;
+}
+
+html.dark-mode .logout-button {
+    background-color: #444;
+}
+
+html.dark-mode .logout-button:hover {
+    background-color: #555;
+}
+
+/* Butonul Back-to-Top în Dark Mode */
+html.dark-mode .back-to-top-btn {
+    background-color: #cc9900;
+    color: #1a1a1a;
+}
+
+/* ======================================= */
+/* === 13. STIL CLASAMENT (ASIDE)     === */
+/* ======================================= */
+
+#clasament-container {
+    margin-top: -15px;
+    /* Aliniere mai bună sub h3 */
+}
+
+.clasament-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.clasament-table th,
+.clasament-table td {
+    padding: 8px 4px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.clasament-table th {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+/* Aliniere centrată pentru coloanele numerice */
+.clasament-table th:not(.team-name),
+.clasament-table td:not(.team-name) {
+    text-align: center;
+}
+
+/* Reguli pentru coloana cu nume (pentru a preveni rânduri inegale) */
+.clasament-table .team-name {
+    width: 50%;
+    font-weight: 600;
+    white-space: nowrap;
+    /* Forțează textul pe un singur rând */
+    overflow: hidden;
+    /* Ascunde ce depășește */
+    text-overflow: ellipsis;
+    /* Adaugă "..." */
+}
+
+/* Evidențierea rândului pentru Rapid */
+.clasament-table .rapid-highlight {
+    background-color: #800000;
+    color: white;
+    font-weight: bold;
+}
+
+.clasament-meta {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 10px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Dark Mode pentru Clasament */
+html.dark-mode .clasament-table th {
+    color: #e0e0e0;
+}
+
+html.dark-mode .clasament-table td {
+    border-bottom-color: #444;
+}
+
+html.dark-mode .clasament-table .rapid-highlight {
+    background-color: #cc9900;
+    color: #1a1a1a;
+}
+
+html.dark-mode .clasament-meta {
+    color: #aaa;
+}
+
+/* ======================================= */
+/* === 14. STILURI PAGINA SETĂRI      === */
+/* ======================================= */
+
+#settings-form fieldset {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fcfcfc;
+}
+
+#settings-form legend {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #800000;
+    padding: 0 10px;
+}
+
+#settings-form label {
+    font-weight: 600;
+    color: #555;
+    font-size: 1rem;
+}
+
+#settings-form input[type="text"],
+#settings-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Important */
+}
+
+#settings-form button[type="submit"] {
+    background-color: #800000;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#settings-form button[type="submit"]:hover {
+    background-color: #600000;
+}
+
+/* Dark Mode pentru pagina de Setări */
+html.dark-mode #settings-form fieldset {
+    border-color: #444;
+    background-color: #333;
+}
+
+html.dark-mode #settings-form legend {
+    color: #cc9900;
+}
+
+html.dark-mode #settings-form label {
+    color: #e0e0e0;
+}
+
+html.dark-mode #settings-form input[type="text"],
+html.dark-mode #settings-form input[type="password"] {
+    background-color: #555;
+    border-color: #777;
+    color: #f1f1f1;
+}
+
+html.dark-mode #settings-form button[type="submit"] {
+    background-color: #cc9900;
+    color: #1a1a1a;
+}
+
+html.dark-mode #settings-form button[type="submit"]:hover {
+    background-color: #ad8300;
+}

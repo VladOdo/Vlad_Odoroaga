@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Acasă - Rapid FanClub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/authentication.js"></script>
+</head>
+
+<body>
+
+  <div class="grid-container layout-acasa">
+
+    <header>
+      <a id="brand" href="index.html">Rapid - Echipa de sub Podul Grant</a>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <h1>Bun Venit pe Rapid FanClub!</h1>
+        <p>Locul unde toți suporterii vișinii se simt ca acasă. Hai Rapid!</p>
+      </section>
+
+      <h2>Acces Rapid</h2>
+      <section class="quick-links-container">
+        <a href="stiri.html" class="quick-link-card">
+          <h3>Știri 📰</h3>
+          <p>Vezi ultimele noutăți din Giulești.</p>
+        </a>
+        <a href="program_competitional.html" class="quick-link-card">
+          <h3>Program 📅</h3>
+          <p>Vezi meciurile viitoare și rezultatele.</p>
+        </a>
+        <a href="echipa.html" class="quick-link-card">
+          <h3>Echipa 🏆</h3>
+          <p>Vezi lotul complet de jucători.</p>
+        </a>
+      </section>
+    </main>
+
+    <aside>
+      <h3>Sponsori și Parteneri</h3>
+      <p>Aici pot fi afișate logo-uri sau link-uri către sponsori.</p>
+      <img src="imagini/placeholder-sponsor.png" alt="Sponsor" style="width:100%; opacity: 0.5;">
+
+      <h3>Social Media</h3>
+      <p>Urmărește-ne pe rețelele sociale.</p>
+    </aside>
+
+    <footer>
+      <div class="footer-container">
+        <div id="footer-info">
+          <h2>Contact</h2>
+          <p>Ai o întrebare sau o sugestie? Ne poți scrie direct la adresa:
+            <a href="mailto:contact@rapid-fansite.ro">contact@rapid-fansite.ro</a>
+          </p>
+        </div>
+        <div id="footer-form-container">
+          <form id="footer-form" action="#" method="post">
+            <div>
+              <label for="footer-nume">Numele tău:</label>
+              <input type="text" id="footer-nume" name="nume" required>
+            </div>
+            <div>
+              <label for="footer-mesaj">Mesajul tău:</label>
+              <textarea id="footer-mesaj" name="mesaj" rows="3" required></textarea>
+            </div>
+            <button type="submit">Trimite</button>
+          </form>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <script src="js/main.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <a id="back-to-top-btn" class="back-to-top-btn hidden" href="#">⬆️ Mergi sus</a>
+</body>
+
+</html>

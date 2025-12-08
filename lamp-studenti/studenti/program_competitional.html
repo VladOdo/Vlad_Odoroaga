@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Program Competițional - Echipa de sub Podul Grant</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/authentication.js"></script>
+</head>
+
+<body>
+
+    <div class="grid-container">
+
+        <header>
+            <a id="brand" href="index.html">Rapid - Echipa de sub Podul Grant</a>
+        </header>
+
+        <nav>
+            <a href="index.html">Acasă</a>
+            <a href="stiri.html">Știri</a>
+            <a href="echipa.html">Echipă</a>
+            <a href="program_competitional.html">Program competițional</a>
+            <a href="setari.html">Setări</a>
+        </nav>
+
+        <main>
+            <section id="program">
+                <h2>Program Competițional</h2>
+
+                <h3>Meciuri Viitoare</h3>
+                <div id="meciuri-viitoare-container">
+                    <p>Se încarcă meciurile...</p>
+                </div>
+
+                <hr>
+
+                <h3>Rezultate Recente</h3>
+                <div id="rezultate-container">
+                    <p>Se încarcă rezultatele...</p>
+                </div>
+
+            </section>
+        </main>
+        <<aside>
+            <h3>Clasament SuperLiga</h3>
+             <div id="clasament-container">
+                <p>Se încarcă clasamentul...</p>
+            </div>
+        </aside>
+
+        <footer>
+            <div class="footer-container">
+
+                <div id="footer-info">
+                    <h2>Contact</h2>
+                    <p>
+                        Ai o întrebare, o sugestie sau vrei doar să ne saluți?
+                        Ne poți scrie direct la adresa:
+                        <a href="mailto:contact@rapid-fansite.ro">contact@rapid-fansite.ro</a>
+                    </p>
+                    <p>
+                        Sau poți folosi formularul alăturat.
+                    </p>
+                </div>
+
+                <div id="footer-form-container">
+                    <form id="footer-form" action="#" method="post">
+                        <div>
+                            <label for="footer-nume">Numele tău:</label>
+                            <input type="text" id="footer-nume" name="nume" required>
+                        </div>
+                        <div>
+                            <label for="footer-email">Email:</label>
+                            <input type="email" id="footer-email" name="email" required>
+                        </div>
+                        <div>
+                            <label for="footer-mesaj">Mesajul tău:</label>
+                            <textarea id="footer-mesaj" name="mesaj" rows="5" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit">Trimite Mesajul</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </footer>
+
+    </div>
+    <script src="js/main.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/program.js" defer></script>
+    <a id="back-to-top-btn" class="back-to-top-btn hidden" href="#">⬆️ Mergi sus</a>
+</body>
+
+</html>

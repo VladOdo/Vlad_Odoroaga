@@ -1,0 +1,22 @@
+{
+    "stiri": [
+        {
+            "id": 1,
+            "titlu": "Victorie crucială! Rapid învinge FC Argeș și urcă pe loc de Play-off",
+            "data_iso": "2025-11-10T15:00:00",
+            "data_afisare": "10 Noiembrie 2025",
+            "imagine_url": "https://placehold.co/250x180/800000/FFFFFF?text=Victorie+Rapid",
+            "rezumat": "Rapid a obținut 3 puncte de aur în Giulești, învingând FC Argeș cu 2-1 (scor fictiv). Meciul a fost unul tensionat, dar echipa a arătat caracter. Toate privirile se îndreaptă acum spre meciul vital cu CFR Cluj.",
+            "link_sursa": "#"
+        },
+        {
+            "id": 2,
+            "titlu": "S-au pus în vânzare biletele pentru meciul cu CFR Cluj",
+            "data_iso": "2025-11-09T14:30:00",
+            "data_afisare": "9 Noiembrie 2025",
+            "imagine_url": "https://placehold.co/250x180/555555/FFFFFF?text=Bilete+Meci",
+            "rezumat": "Clubul a anunțat că biletele pentru derby-ul cu CFR Cluj sunt acum disponibile online și la casele de bilete. Se așteaptă un stadion plin.",
+            "link_sursa": "#"
+        }
+    ]
+}
