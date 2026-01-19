@@ -1,134 +1,110 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     const viitoareContainer = document.getElementById('meciuri-viitoare-container');
     const rezultateContainer = document.getElementById('rezultate-container');
+    const clasamentContainer = document.getElementById('clasament-container');
 
-    async function incarcaProgram() {
+    // --- 1. ÎNCĂRCARE MECIURI ---
+    async function incarcaMeciuri() {
+        if (!viitoareContainer || !rezultateContainer) return;
+
         try {
-            const response = await fetch('program-data.json');
-            if (!response.ok) {
-                throw new Error(`Nu găsesc "program-data.json".`);
+            const response = await fetch('backend/get_meciuri.php');
+            const data = await response.json();
+
+            if (data.success) {
+                // Filtrăm meciurile pe baza flag-ului 'e_trecut' calculat de PHP
+                const meciuri = data.meciuri;
+                
+                // Meciurile trecute le inversăm (cele mai recente primele)
+                const trecute = meciuri.filter(m => m.e_trecut).reverse();
+                
+                // Meciurile viitoare rămân în ordinea cronologică
+                const viitoare = meciuri.filter(m => !m.e_trecut);
+
+                populeazaLista(viitoare, viitoareContainer, 'viitor');
+                populeazaLista(trecute, rezultateContainer, 'trecut');
+            } else {
+                console.error("Eroare server meciuri:", data.message);
+            }
+        } catch (error) {
+            console.error('Eroare conexiune meciuri:', error);
+        }
+    }
+
+    function populeazaLista(lista, container, tip) {
+        container.innerHTML = ''; 
+        
+        if (lista.length === 0) {
+            container.innerHTML = '<p>Nu există date disponibile.</p>';
+            return;
+        }
+
+        lista.forEach(meci => {
+            // Logica de afișare scor
+            let scorDisplay = 'vs';
+            // Dacă meciul e trecut sau are scor setat, îl afișăm
+            if (meci.scor_casa !== null && meci.scor_oaspeti !== null) {
+                scorDisplay = `<strong>${meci.scor_casa} - ${meci.scor_oaspeti}</strong>`;
             }
 
-            const data = await response.json();
-            const acum = new Date();
-
-            const meciuriViitoare = [];
-            const meciuriTrecute = [];
-            data.meciuri.forEach(meci => {
-                const dataMeci = new Date(meci.data_iso); 
-                if (dataMeci < acum) {
-                    meciuriTrecute.push(meci); 
-                } else {
-                    meciuriViitoare.push(meci); 
-                }
-            });
-            meciuriViitoare.sort((a, b) => new Date(a.data_iso) - new Date(b.data_iso));
-            meciuriTrecute.sort((a, b) => new Date(b.data_iso) - new Date(a.data_iso));
-
-            afiseazaMeciuriViitoare(meciuriViitoare);
-            afiseazaRezultate(meciuriTrecute);
-
-        } catch (error) {
-            console.error('Eroare la încărcarea programului:', error);
-            viitoareContainer.innerHTML = `<p style="color:red;"><b>Eroare:</b> ${error.message}</p>`;
-        }
-    }
-
-    function afiseazaMeciuriViitoare(meciuri) {
-        viitoareContainer.innerHTML = '';
-        if (!meciuri || meciuri.length === 0) {
-            viitoareContainer.innerHTML = '<p>Niciun meci programat.</p>';
-            return;
-        }
-
-        meciuri.forEach(meci => {
-            const meciHtml = `
-                <div class="meci-card viitor">
-                  <span class="competitie">${meci.competitie}</span>
-                  <h4>${meci.echipa_casa} vs. ${meci.echipa_oaspeti}</h4>
-                  <p class="data-meci">${meci.data_afisare}</p>
+            const html = `
+                <div class="meci-card ${tip}">
+                    <span class="competitie">${meci.competitie}</span>
+                    <h4>${meci.echipa_casa} ${scorDisplay} ${meci.echipa_oaspeti}</h4>
+                    <p class="data-meci">${meci.data_afisare}</p>
                 </div>
             `;
-            viitoareContainer.innerHTML += meciHtml;
+            container.innerHTML += html;
         });
     }
 
-    function afiseazaRezultate(meciuri) {
-        rezultateContainer.innerHTML = '';
-        if (!meciuri || meciuri.length === 0) {
-            rezultateContainer.innerHTML = '<p>Niciun rezultat recent.</p>';
-            return;
-        }
-
-        meciuri.forEach(meci => {
-            const meciHtml = `
-                <div class="meci-card trecut">
-                  <span class="competitie">${meci.competitie}</span>
-                  <h4>
-                    ${meci.echipa_casa} 
-                    <strong>${meci.scor_casa} - ${meci.scor_oaspeti}</strong> 
-                    ${meci.echipa_oaspeti}
-                  </h4>
-                  <p class="data-meci">${meci.data_afisare}</p>
-                </div>
-            `;
-            rezultateContainer.innerHTML += meciHtml;
-        });
-    }
+    // --- 2. ÎNCĂRCARE CLASAMENT ---
     async function incarcaClasament() {
-        const container = document.getElementById('clasament-container');
-        if (!container) {
-            return;
-        }
+        if (!clasamentContainer) return;
 
         try {
-            const response = await fetch('clasament.json');
-            if (!response.ok) {
-                throw new Error('Nu am găsit fișierul clasament.json');
-            }
-
+            const response = await fetch('backend/get_clasament.php');
             const data = await response.json();
-            data.echipe.sort((a, b) => b.pct - a.pct);
-            let html = `
-                <table class="clasament-table">
-                    <thead>
-                        <tr>
-                            <th>Loc</th>
-                            <th class="team-name">Echipa</th>
-                            <th>MJ</th>
-                            <th>Pct</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
 
-            data.echipe.forEach((echipa, index) => {
+            if (data.success) {
+                let html = `
+                    <table class="clasament-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th class="team-name">Echipa</th>
+                                <th>MJ</th>
+                                <th>Pct</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+                
+                // Generăm rândurile tabelului
+                data.clasament.forEach((echipa, index) => {
 
-                let rapidClass = echipa.nume.includes('Rapid') ? ' rapid-highlight' : '';
+                    const isRapid = echipa.echipa.toLowerCase().includes('rapid');
+                    const clasa = isRapid ? 'rapid-highlight' : '';
+                    
+                    html += `
+                        <tr class="${clasa}">
+                            <td>${index + 1}</td>
+                            <td class="team-name">${echipa.echipa}</td>
+                            <td>${echipa.meciuri_jucate}</td>
+                            <td><strong>${echipa.puncte}</strong></td>
+                        </tr>`;
+                });
 
-                html += `
-                    <tr class="team-row${rapidClass}">
-                        <td>${index + 1}</td> 
-                        <td class="team-name">${echipa.nume}</td>
-                        <td>${echipa.mj}</td>
-                        <td><strong>${echipa.pct}</strong></td>
-                    </tr>
-                `;
-            });
-            html += `
-                    </tbody>
-                </table>
-            `;
-
-            container.innerHTML = html;
-
+                html += `</tbody></table>
+                         <p class="clasament-meta">(Clasament actualizat)</p>`;
+                
+                clasamentContainer.innerHTML = html;
+            }
         } catch (error) {
-            console.error('Eroare la încărcarea clasamentului:', error);
-            container.innerHTML = '<p>Clasamentul nu este disponibil.</p>';
+            console.error('Eroare conexiune clasament:', error);
+            clasamentContainer.innerHTML = '<p>Clasamentul nu este disponibil.</p>';
         }
     }
-    incarcaProgram();
-    incarcaClasament(); 
 
+    incarcaMeciuri();
+    incarcaClasament();
 });

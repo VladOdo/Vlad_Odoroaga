@@ -11,29 +11,33 @@
 <body>
 
     <div class="grid-container">
-
         <header>
-            <a id="brand" href="index.html">Rapid - Echipa de sub Podul Grant</a>
+            <a id="brand" href="index.html">Rapid FanClub</a>
+            <div class="user-actions">
+                <!-- Se vede doar dacă ești logat ca Admin -->
+                <a id="logout-button-header" href="#" class="logout-btn hidden">Ieșire Admin</a>
+            </div>
         </header>
 
         <nav>
             <a href="index.html">Acasă</a>
             <a href="stiri.html">Știri</a>
             <a href="echipa.html">Echipă</a>
-            <a href="program_competitional.html">Program competițional</a>
-            <a href="setari.html">Setări</a>
+            <a href="program_competitional.html">Program</a>
         </nav>
 
         <main>
             <h2>Ultimele Știri</h2>
-
-            <section id="stiri-container">
+            <!-- Acest DIV este gol momentan. -->
+            <!-- Scriptul 'js/stiri.js' va citi baza de date și va crea cardurile cu știri AICI, în interior. -->
+            <div id="stiri-container">
                 <p>Se încarcă știrile...</p>
-            </section>
+            </div>
         </main>
 
         <aside>
-            
+            <h3>Info Club</h3>
+            <p>Urmărește cele mai noi informatii despre Rapid București.</p>
         </aside>
 
         <footer>
@@ -41,32 +45,35 @@
                 <div id="footer-info">
                     <h2>Contact</h2>
                     <p>
-                        Ai o întrebare, o sugestie sau vrei doar să ne saluți?
                         Ne poți scrie direct la adresa:
                         <a href="mailto:contact@rapid-fansite.ro">contact@rapid-fansite.ro</a>
                     </p>
                 </div>
                 <div id="footer-form-container">
-                    <form id="footer-form" action="#" method="post">
+                    <!-- ID-ul 'footer-form' este folosit de 'js/contact.js' pentru a trimite datele -->
+                    <form id="footer-form">
                         <div>
                             <label for="footer-nume">Numele tău:</label>
-                            <input type="text" id="footer-nume" name="nume" required>
+                            <input type="text" id="footer-nume" name="nume" placeholder="Ex: Ion Popescu" required>
+                        </div>
+                        <div>
+                            <label for="footer-email">Email:</label>
+                            <input type="email" id="footer-email" name="email" placeholder="Ex: ion@email.com" required>
                         </div>
                         <div>
                             <label for="footer-mesaj">Mesajul tău:</label>
-                            <textarea id="footer-mesaj" name="mesaj" rows="3" required></textarea>
+                            <textarea id="footer-mesaj" name="mesaj" rows="3" placeholder="Scrie mesajul aici..."
+                                required></textarea>
                         </div>
-                        <button type="submit">Trimite</button>
+                        <button type="submit">Trimite Mesajul</button>
                     </form>
                 </div>
             </div>
         </footer>
-
     </div>
+
     <script src="js/main.js" defer></script>
     <script src="js/stiri.js" defer></script>
-        
-    <a id="back-to-top-btn" class="back-to-top-btn hidden" href="#">⬆️ Mergi sus</a>
+    <script src="js/contact.js" defer></script>
 </body>
-
 </html>

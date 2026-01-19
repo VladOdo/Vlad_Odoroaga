@@ -5,15 +5,29 @@
   <meta charset="UTF-8">
   <title>Acasă - Rapid FanClub</title>
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Scripturi -->
   <script src="js/authentication.js"></script>
 </head>
 
 <body>
-
+  <!-- Clasa 'grid-container' din style.css creeaza layout-ul principal -->
+  <!-- Clasa 'layout-acasa' suprascrie grid-ul pentru a elimina meniul din stanga pe aceasta pagina -->
   <div class="grid-container layout-acasa">
 
     <header>
-      <a id="brand" href="index.html">Rapid - Echipa de sub Podul Grant</a>
+      <a id="brand" href="index.html">Rapid FanClub</a>
+      <div class="user-actions">
+        <!-- BUTONUL PENTRU ADMIN (Ascuns implicit) -->
+        <a id="admin-panel-btn" href="admin.html" class="logout-btn hidden"
+          style="background-color: #ffc107; color: #000; margin-right: 10px;">
+          🛠️ Panou Admin
+        </a>
+
+        <!-- Butonul de deconectare -->
+        <!-- Clasa .hidden îl ține ascuns până când scriptul de autentificare decide să îl arate -->
+        <a id="logout-button-header" href="#" class="logout-btn hidden">Ieșire Admin</a>
+      </div>
     </header>
 
     <main>
@@ -40,32 +54,22 @@
     </main>
 
     <aside>
-      <h3>Sponsori și Parteneri</h3>
-      <p>Aici pot fi afișate logo-uri sau link-uri către sponsori.</p>
-      <img src="imagini/placeholder-sponsor.png" alt="Sponsor" style="width:100%; opacity: 0.5;">
-
-      <h3>Social Media</h3>
-      <p>Urmărește-ne pe rețelele sociale.</p>
+      <h3>Parteneri</h3>
+      <p>Susține echipa favorită!</p>
+      <img src="https://placehold.co/200x150?text=Sponsor" alt="Sponsor" style="opacity: 0.7;">
     </aside>
 
     <footer>
       <div class="footer-container">
         <div id="footer-info">
           <h2>Contact</h2>
-          <p>Ai o întrebare sau o sugestie? Ne poți scrie direct la adresa:
-            <a href="mailto:contact@rapid-fansite.ro">contact@rapid-fansite.ro</a>
-          </p>
+          <p>Ne poți scrie la: <a href="mailto:contact@rapid.ro">contact@rapid.ro</a></p>
+          <a href="login.html" class="admin-link">Administrare</a>
         </div>
         <div id="footer-form-container">
-          <form id="footer-form" action="#" method="post">
-            <div>
-              <label for="footer-nume">Numele tău:</label>
-              <input type="text" id="footer-nume" name="nume" required>
-            </div>
-            <div>
-              <label for="footer-mesaj">Mesajul tău:</label>
-              <textarea id="footer-mesaj" name="mesaj" rows="3" required></textarea>
-            </div>
+          <form id="footer-form">
+            <input type="text" placeholder="Nume" required>
+            <textarea placeholder="Mesaj" rows="3" required></textarea>
             <button type="submit">Trimite</button>
           </form>
         </div>
@@ -73,9 +77,11 @@
     </footer>
 
   </div>
+
   <script src="js/main.js" defer></script>
-  <script src="js/theme.js" defer></script>
-  <a id="back-to-top-btn" class="back-to-top-btn hidden" href="#">⬆️ Mergi sus</a>
+  <script src="js/contact.js" defer></script>
+  <a id="back-to-top-btn" class="back-to-top-btn hidden" href="#">⬆️</a>
+
 </body>
 
 </html>

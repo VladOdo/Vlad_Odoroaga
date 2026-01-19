@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Panou Admin - Rapid FanClub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/authentication.js"></script>
+
+    <style>
+        .admin-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .admin-tab {
+            padding: 10px 20px;
+            background: #eee;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .admin-tab.active {
+            background: #800000;
+            color: white;
+        }
+
+        .admin-section {
+            display: none;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+        }
+
+        .admin-table th,
+        .admin-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .admin-table th {
+            background-color: #f4f4f4;
+        }
+
+        .admin-table input {
+            width: 60px;
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .btn-save {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+
+        .btn-save:hover {
+            background-color: #218838;
+        }
+
+        .btn-disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <header>
+            <a id="brand" href="index.html">Rapid Admin Panel 🛠️</a>
+            <div class="user-actions">
+                <a id="logout-button-header" href="#" class="logout-btn">Ieșire</a>
+            </div>
+        </header>
+
+        <nav>
+            <a href="index.html">⬅️ Înapoi la Site</a>
+
+            <!-- TAB-URILE DE NAVIGARE -->
+            <!-- Folosim data-target pentru a ști ce secțiune deschidem -->
+            <button class="admin-tab active" data-target="section-stiri">📰 Știri</button>
+            <button class="admin-tab" data-target="section-meciuri">⚽ Meciuri</button>
+            <button class="admin-tab" data-target="section-clasament">🏆 Clasament</button>
+        </nav>
+
+        <main>
+
+            <!-- SECȚIUNEA 1: ȘTIRI -->
+            <div id="section-stiri" class="admin-section active">
+                <h2>Adaugă Știre Nouă</h2>
+                <div class="admin-panel-container">
+                    <form id="add-news-form">
+                        <div class="form-group">
+                            <label>Titlu:</label>
+                            <input type="text" name="titlu" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Imagine (URL):</label>
+                            <input type="text" name="imagine_url" placeholder="https://..." required>
+                        </div>
+                        <div class="form-group">
+                            <label>Rezumat:</label>
+                            <textarea name="rezumat" rows="2" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Conținut:</label>
+                            <textarea name="continut" rows="5" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Autor:</label>
+                            <input type="text" name="autor" value="Admin" required>
+                        </div>
+                        <button type="submit" class="admin-btn">Publică Știrea</button>
+                        <p id="form-message" class="hidden"></p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- SECȚIUNEA 2: MECIURI -->
+            <div id="section-meciuri" class="admin-section">
+                <h2>Actualizare Scoruri</h2>
+                <p>Editează scorurile și apasă "Salvează" pe rândul respectiv.</p>
+                <div id="admin-meciuri-list">
+                    <p>Selectează tab-ul pentru a încărca datele.</p>
+                </div>
+            </div>
+
+            <!-- SECȚIUNEA 3: CLASAMENT -->
+            <div id="section-clasament" class="admin-section">
+                <h2>Actualizare Clasament</h2>
+                <p>Modifică meciurile jucate și punctele.</p>
+                <div id="admin-clasament-list">
+                    <p>Selectează tab-ul pentru a încărca datele.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <aside>
+            <h3>Info Admin</h3>
+            <p><strong>Meciuri:</strong> Poți seta scorul. Dacă lași gol, meciul apare ca "vs".</p>
+            <p><strong>Clasament:</strong> Actualizează punctele și meciurile jucate (MJ).</p>
+        </aside>
+
+        <footer>
+            <p>Panou de Administrare Securizat</p>
+        </footer>
+    </div>
+
+    <!-- SCRIPTUL LOGIC -->
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

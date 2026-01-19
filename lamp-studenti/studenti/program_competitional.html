@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Program Competițional - Echipa de sub Podul Grant</title>
+    <title>Program - Rapid FanClub</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/authentication.js"></script>
 </head>
@@ -13,15 +13,18 @@
     <div class="grid-container">
 
         <header>
-            <a id="brand" href="index.html">Rapid - Echipa de sub Podul Grant</a>
+            <a id="brand" href="index.html">Rapid FanClub</a>
+            <div class="user-actions">
+                <!-- Se vede doar dacă ești logat ca Admin -->
+                <a id="logout-button-header" href="#" class="logout-btn hidden">Ieșire Admin</a>
+            </div>
         </header>
 
         <nav>
             <a href="index.html">Acasă</a>
             <a href="stiri.html">Știri</a>
             <a href="echipa.html">Echipă</a>
-            <a href="program_competitional.html">Program competițional</a>
-            <a href="setari.html">Setări</a>
+            <a href="program_competitional.html">Program</a>
         </nav>
 
         <main>
@@ -33,65 +36,63 @@
                     <p>Se încarcă meciurile...</p>
                 </div>
 
-                <hr>
+                <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd;">
 
                 <h3>Rezultate Recente</h3>
                 <div id="rezultate-container">
                     <p>Se încarcă rezultatele...</p>
                 </div>
-
             </section>
         </main>
-        <<aside>
-            <h3>Clasament SuperLiga</h3>
-             <div id="clasament-container">
+
+        <aside>
+            <h3>Clasament</h3>
+            <div id="clasament-container">
                 <p>Se încarcă clasamentul...</p>
             </div>
         </aside>
 
         <footer>
             <div class="footer-container">
-
                 <div id="footer-info">
                     <h2>Contact</h2>
                     <p>
-                        Ai o întrebare, o sugestie sau vrei doar să ne saluți?
                         Ne poți scrie direct la adresa:
                         <a href="mailto:contact@rapid-fansite.ro">contact@rapid-fansite.ro</a>
                     </p>
-                    <p>
-                        Sau poți folosi formularul alăturat.
-                    </p>
+                    
+                    <a href="login.html" class="admin-link">Administrare</a>
                 </div>
-
                 <div id="footer-form-container">
-                    <form id="footer-form" action="#" method="post">
+                    <form id="footer-form">
                         <div>
                             <label for="footer-nume">Numele tău:</label>
-                            <input type="text" id="footer-nume" name="nume" required>
+                            <input type="text" id="footer-nume" name="nume" placeholder="Ex: Ion Popescu" required>
                         </div>
                         <div>
                             <label for="footer-email">Email:</label>
-                            <input type="email" id="footer-email" name="email" required>
+                            <input type="email" id="footer-email" name="email" placeholder="Ex: ion@email.com" required>
                         </div>
                         <div>
                             <label for="footer-mesaj">Mesajul tău:</label>
-                            <textarea id="footer-mesaj" name="mesaj" rows="5" required></textarea>
+                            <textarea id="footer-mesaj" name="mesaj" rows="3" placeholder="Scrie mesajul aici..."
+                                required></textarea>
                         </div>
-                        <div>
-                            <button type="submit">Trimite Mesajul</button>
-                        </div>
+                        <button type="submit">Trimite Mesajul</button>
                     </form>
                 </div>
-
             </div>
         </footer>
 
     </div>
+
+    <!-- Scripturile necesare -->
     <script src="js/main.js" defer></script>
-    <script src="js/theme.js" defer></script>
-    <script src="js/program.js" defer></script>
-    <a id="back-to-top-btn" class="back-to-top-btn hidden" href="#">⬆️ Mergi sus</a>
+    <script src="js/program.js" defer></script> <!-- Logica pentru meciuri și clasament -->
+    <script src="js/contact.js" defer></script> <!-- Logica pentru formularul de contact -->
+
+    <a id="back-to-top-btn" class="back-to-top-btn hidden" href="#">⬆️</a>
+
 </body>
 
 </html>
